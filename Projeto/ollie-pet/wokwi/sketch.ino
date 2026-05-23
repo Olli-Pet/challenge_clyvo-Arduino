@@ -1,9 +1,3 @@
-// =============================================================
-// OLLIE PET - Prototipo IoT para monitoramento de pets
-// Disciplina: Disruptive Architectures - FIAP
-// Plataforma: ESP32 + Wokwi + MQTT
-// =============================================================
-
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <DHTesp.h>
@@ -42,8 +36,8 @@ const int BUZZER = 14;
 // =========================
 // REGRAS DA SIMULACAO
 // =========================
-const float TEMP_ALERTA = 39.2;          // temperatura corporal alta para pets
-const int DISTANCIA_ALERTA_CM = 180;     // pet distante da base simulada
+const float TEMP_ALERTA = 39.2;          
+const int DISTANCIA_ALERTA_CM = 180;     
 const unsigned long INTERVALO_MQTT = 3000;
 const unsigned long INTERVALO_BATIMENTO = 420;
 
