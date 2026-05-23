@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "OLLIE PET - FIAP",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 9.6, "left": -4.76, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -124.5, "left": -104.4, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": -132.9, "left": 153.6, "attrs": { "distance": "120" } },
+    { "type": "wokwi-led", "id": "ledHeart", "top": 124.8, "left": -161.8, "rotate": 270, "attrs": { "color": "red", "label": "Batimento" } },
+    { "type": "wokwi-led", "id": "ledAlert", "top": 163.2, "left": -161.8, "rotate": 270, "attrs": { "color": "yellow", "label": "Alerta" } },
+    { "type": "wokwi-resistor", "id": "rHeart", "top": 139.2, "left": -91.2, "attrs": { "value": "1000" } },
+    { "type": "wokwi-resistor", "id": "rAlert", "top": 177.6, "left": -91.2, "attrs": { "value": "1000" } },
+    { "type": "wokwi-buzzer", "id": "buzzer1", "top": 175.2, "left": 170.4, "attrs": { "volume": "0.1" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v28.8", "h105.6" ] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "v48", "h115.2" ] ],
+    [ "dht1:SDA", "esp:15", "green", [ "v67.2", "h115.1" ] ],
+    [ "ultrasonic1:VCC", "esp:5V", "red", [ "v28.8", "h-124.8" ] ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v48", "h-134.4" ] ],
+    [ "ultrasonic1:TRIG", "esp:5", "green", [ "v67.2", "h-115.2" ] ],
+    [ "ultrasonic1:ECHO", "esp:18", "blue", [ "v86.4", "h-115.2" ] ],
+    [ "ledHeart:A", "rHeart:1", "red", [ "h28.8" ] ],
+    [ "rHeart:2", "esp:26", "red", [ "h67.2", "v-38.4" ] ],
+    [ "ledHeart:C", "esp:GND.1", "black", [ "h-19.2", "v-76.8", "h172.8" ] ],
+    [ "ledAlert:A", "rAlert:1", "gold", [ "h28.8" ] ],
+    [ "rAlert:2", "esp:27", "gold", [ "h57.6", "v-76.8" ] ],
+    [ "ledAlert:C", "esp:GND.1", "black", [ "h-28.8", "v-115.2", "h182.4" ] ],
+    [ "buzzer1:1", "esp:14", "purple", [ "v0", "h-86.4" ] ],
+    [ "buzzer1:2", "esp:GND.2", "black", [ "v19.2", "h-115.2" ] ]
+  ],
+  "dependencies": {}
+}

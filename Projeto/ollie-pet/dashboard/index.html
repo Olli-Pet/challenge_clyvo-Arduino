@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OLLIE PET | Dashboard IoT</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">CLYVO VET | FIAP Disruptive Architectures</p>
+          <h1>OLLIE PET</h1>
+        </div>
+        <div class="connection" id="connectionStatus">
+          <span class="dot"></span>
+          Conectando MQTT
+        </div>
+      </header>
+
+      <section class="summary-grid">
+        <article class="card pet-card">
+          <div class="pet-avatar">OP</div>
+          <div>
+            <p class="label">Chip inteligente</p>
+            <h2>Ollie</h2>
+            <p class="muted">OLLIE-CHIP-001</p>
+          </div>
+        </article>
+
+        <article class="card metric-card">
+          <p class="label">Temperatura</p>
+          <strong id="temperatureValue">--.- C</strong>
+          <span id="temperatureStatus" class="pill">Aguardando</span>
+        </article>
+
+        <article class="card metric-card">
+          <p class="label">Batimentos</p>
+          <strong id="heartValue">--- bpm</strong>
+          <span id="heartStatus" class="pill">Aguardando</span>
+        </article>
+
+        <article class="card metric-card">
+          <p class="label">Localizacao</p>
+          <strong id="locationValue">-- cm</strong>
+          <span id="locationStatus" class="pill">Aguardando</span>
+        </article>
+      </section>
+
+      <section class="workspace">
+        <article class="card chart-card">
+          <div class="section-head">
+            <div>
+              <p class="label">Telemetria</p>
+              <h2>Saude em tempo real</h2>
+            </div>
+            <span id="lastUpdate">Sem leituras</span>
+          </div>
+          <canvas id="telemetryChart" width="900" height="340"></canvas>
+        </article>
+
+        <aside class="side-panel">
+          <article class="card status-card" id="riskCard">
+            <p class="label">Status geral</p>
+            <strong id="generalStatus">Aguardando dados</strong>
+            <p id="statusDescription">Inicie a simulacao no Wokwi para receber as publicacoes MQTT.</p>
+          </article>
+
+          <article class="card topic-card">
+            <p class="label">Topico MQTT</p>
+            <code>fiap/iot/2tdsa/olliepet/telemetria</code>
+          </article>
+
+          <article class="card feed-card">
+            <p class="label">Ultimas mensagens</p>
+            <ul id="messageFeed"></ul>
+          </article>
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

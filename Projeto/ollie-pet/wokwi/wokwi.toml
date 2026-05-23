@@ -1,0 +1,10 @@
+[wokwi]
+version = 1
+elf = "build/esp32.esp32.esp32doit-devkit-v1/sketch.ino.elf"
+firmware = "build/esp32.esp32.esp32doit-devkit-v1/sketch.ino.bin"
+
+[[wifi]]
+ssid = "Wokwi-GUEST"
+password = ""
+internet = true
+
